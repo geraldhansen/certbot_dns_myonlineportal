@@ -4,17 +4,13 @@ import logging
 import time
 
 import requests
-import zope.interface
 
 from certbot import errors
-from certbot import interfaces
 from certbot.plugins import dns_common
 
 logger = logging.getLogger(__name__)
 
 
-@zope.interface.implementer(interfaces.IAuthenticator)
-@zope.interface.provider(interfaces.IPluginFactory)
 class Authenticator(dns_common.DNSAuthenticator):
     """DNS Authenticator for MyOnlinePortal
     This Authenticator uses the MyOnlinePortal Remote REST API to fulfill a dns-01 challenge.

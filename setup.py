@@ -7,7 +7,7 @@ version = "0.0.2"
 
 install_requires = [
     "acme>=0.29.0",
-    "certbot>=0.34.0",
+    "certbot>=2.0.0",
     "setuptools",
     "requests",
     "mock",
