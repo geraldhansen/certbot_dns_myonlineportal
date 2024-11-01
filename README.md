@@ -35,12 +35,12 @@ certbot_dns_myonlineportal.dns_myonlineportal:Authenticator
 Configuration
 -------------
 
-The credentials file e.g. `~/myonlineportal-credentials.ini` should look like this:
+The credentials file e.g. `/etc/letsencrypt/.secrets/myonlineportal-credentials.ini` should look like this:
 
 ```
-certbot_dns_myonlineportal:dns_myonlineportal_username = username
-certbot_dns_myonlineportal:dns_myonlineportal_password = password
-certbot_dns_myonlineportal:dns_myonlineportal_endpoint = https://myonlineportal.net/set-acme
+dns_myonlineportal_username = username
+dns_myonlineportal_password = password
+dns_myonlineportal_endpoint = https://myonlineportal.net/set-acme
 ```
 
 Usage
@@ -48,9 +48,9 @@ Usage
 
 ```
 certbot ... \
-        --authenticator certbot-dns-myonlineportal:dns-myonlineportal \
-        --certbot-dns-myonlineportal:dns-myonlineportal-propagation-seconds 90 \
-        --certbot-dns-myonlineportal:dns-myonlineportal-credentials ~/myonlineportal-credentials.ini \
+        --authenticator dns-myonlineportal \
+        --dns-myonlineportal-propagation-seconds 90 \
+        --dns-myonlineportal-credentials ~/myonlineportal-credentials.ini \
         certonly
 ```
 
@@ -76,9 +76,9 @@ docker run \
   -v ${PWD}/etc/letsencrypt:/etc/letsencrypt \
   --cap-drop=all \
   certbot/dns-myonlineportal certonly --debug \
-   --authenticator certbot-dns-myonlineportal:dns-myonlineportal \
-   --certbot-dns-myonlineportal:dns-myonlineportal-propagation-seconds 90 \
-   --certbot-dns-myonlineportal:dns-myonlineportal-credentials ~/myonlineportal-credentials.ini \
+   --authenticator dns-myonlineportal \
+   --dns-myonlineportal-propagation-seconds 90 \
+   --dns-myonlineportal-credentials /etc/letsencrypt/.secrets/myonlineportal-credentials.ini \
    --no-self-upgrade \
    --agree-tos \
    --email 'my.email@example.com' \

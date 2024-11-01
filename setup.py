@@ -1,13 +1,13 @@
 import setuptools
 
-with open("Readme.md", "r", encoding="utf-8") as fh:
+with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-version = "0.0.1"
+version = "0.1.0"
 
 install_requires = [
     "acme>=0.29.0",
-    "certbot>=0.34.0",
+    "certbot>=2.0.0",
     "setuptools",
     "requests",
     "mock",
@@ -30,10 +30,11 @@ setuptools.setup(
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: POSIX :: Linux",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
         "Topic :: Security",
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Utilities",
@@ -44,7 +45,7 @@ setuptools.setup(
     package_dir={"": "."},
     packages=setuptools.find_packages(),
     include_package_data=True,
-    python_requires=">=3.6",
+    python_requires=">=3.8",
     install_requires=install_requires,
     entry_points={
         "certbot.plugins": [
