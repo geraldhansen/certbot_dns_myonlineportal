@@ -90,7 +90,7 @@ docker run \
 
 Run the tests
 ```
-python3 setup.py test
+python3 -m unittest certbot_dns_myonlineportal.dns_myonlineportal_test -v
 ```
 
 Build the package

@@ -37,8 +37,13 @@ class AuthenticatorTest(
 
         super(AuthenticatorTest, self).setUp()
         self.config = mock.MagicMock(
-            myonlineportal_credentials=path, myonlineportal_propagation_seconds=0
+            myonlineportal_credentials=path, 
+            myonlineportal_propagation_seconds=0  # for backward compatibility
         )  # don't wait during tests
+        
+        # Set up the config to work with modern certbot's conf() method
+        self.config.conf = mock.MagicMock()
+        self.config.conf.return_value = 0  # Return 0 seconds for propagation delay in tests
 
         self.auth = Authenticator(self.config, "myonlineportal")
 
